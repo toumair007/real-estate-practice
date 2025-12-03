@@ -156,7 +156,7 @@
                                         </ul>
                                     </div>
                                     <div class="service-action">
-                                        <a href="service-details.html" class="service-btn">
+                                        <a href="{{ route('agent.payment') }}" class="service-btn">
                                             <span>Choose Plan</span>
                                             <i class="bi bi-arrow-right"></i>
                                         </a>

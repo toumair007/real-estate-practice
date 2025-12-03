@@ -8,6 +8,7 @@ use Hash;
 use Auth;
 use App\Models\Agent;
 use App\Models\Package;
+use App\Models\Order;
 use App\Mail\Websitemail;
 
 class AgentController extends Controller
@@ -228,7 +229,8 @@ class AgentController extends Controller
 
     public function payment()
     {
+        $currentOrder = Order::where('agent_id', Auth::guard('agent')->user()->id)->where('status', 'active')->count();
         $packages = Package::orderBy('id', 'asc')->get();
-        return view('agent.payment', compact('packages'));
+        return view('agent.payment', compact('packages', 'currentOrder'));
     }
 }

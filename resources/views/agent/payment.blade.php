@@ -45,7 +45,8 @@
                         <h3>Current Plan</h3>
                     </div>
                     <!-- Start Card -->
-                    <div class="row">
+                    @if ($currentOrder > 0)
+                        <div class="row">
                         <div class="col-4">
                             <div class="card bg-primary mb-3 shadow">
                                 <div class="card-body">
@@ -55,6 +56,11 @@
                             </div>
                         </div>
                     </div>
+                    @else
+                        <div class="alert alert-warning" role="alert">
+                            You do not have an active plan or did not purchase any plan yet.<br> Please upgrade/purchase your plan.
+                        </div>
+                    @endif
                     <!-- End Card -->
                     <!-- Start Recent Properties -->
                     <div class="recent-properties mt-4">
@@ -87,7 +93,7 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <button type="submit" class="btn btn-secondary">Pay with Card</button>
+                                            <button type="submit" class="btn btn-secondary">Pay with Stripe</button>
                                         </td>
                                     </form>
                                 </tr>
